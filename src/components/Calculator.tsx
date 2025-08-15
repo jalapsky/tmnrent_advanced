@@ -18,29 +18,41 @@ const Calculator = () => {
   };
 
   return (
-    <section className="py-20">
-      <div className="container mx-auto text-center max-w-2xl">
-        <h2 className="text-3xl font-bold mb-6">Калькулятор доходности</h2>
-        <form onSubmit={calculateIncome} className="flex flex-col items-center">
-          <input
-            type="number"
-            value={carPrice}
-            onChange={(e) => setCarPrice(e.target.value)}
-            placeholder="Введите стоимость вашего автомобиля"
-            className="p-3 border rounded mb-4 w-full"
-          />
-          <button type="submit" className="bg-blue-600 text-white px-8 py-3 rounded hover:bg-blue-700">
-            Рассчитать
-          </button>
-        </form>
-        {yearlyIncome.max > 0 && (
-          <div className="mt-8 p-6 bg-gray-100 rounded-lg">
-            <h3 className="text-2xl font-bold">Ваш потенциальный доход за год:</h3>
-            <p className="text-xl mt-2">
-              от {yearlyIncome.min.toLocaleString('ru-RU')} до {yearlyIncome.max.toLocaleString('ru-RU')} рублей
-            </p>
-          </div>
-        )}
+    <section className="py-20 sm:py-32 bg-background">
+      <div className="container mx-auto px-4 max-w-3xl">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-white sm:text-5xl">
+            Рассчитайте вашу прибыль
+          </h2>
+          <p className="mt-4 text-lg text-text-secondary">
+            Узнайте, сколько может приносить ваш автомобиль. Введите его примерную рыночную стоимость и получите предварительный расчет годового дохода.
+          </p>
+        </div>
+        <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700/50 max-w-xl mx-auto shadow-lg">
+          <form onSubmit={calculateIncome} className="flex flex-col items-center">
+            <input
+              type="number"
+              value={carPrice}
+              onChange={(e) => setCarPrice(e.target.value)}
+              placeholder="Стоимость вашего автомобиля, ₽"
+              className="p-4 border border-gray-600 rounded-lg mb-6 w-full bg-gray-900 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            <button type="submit" className="w-full px-8 py-4 rounded-lg text-lg font-bold text-white bg-primary hover:bg-accent transition-all duration-300 transform hover:scale-105">
+              Рассчитать доход
+            </button>
+          </form>
+          {yearlyIncome.max > 0 && (
+            <div className="mt-8 p-6 bg-gradient-to-br from-primary/20 to-background rounded-lg text-center border border-primary/30">
+              <h3 className="text-xl font-bold text-white">Ваш потенциальный доход за год:</h3>
+              <p className="text-4xl font-extrabold text-accent mt-2">
+                {yearlyIncome.min.toLocaleString('ru-RU')} - {yearlyIncome.max.toLocaleString('ru-RU')} ₽
+              </p>
+              <p className="text-sm text-text-secondary mt-2">
+                *Это предварительный расчет. Точная сумма зависит от модели автомобиля и спроса.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
