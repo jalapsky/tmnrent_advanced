@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Лендинг для инвестиций в прокат автомобилей
 
-## Getting Started
+Это проект лендинга, разработанный на Next.js для компании, привлекающей инвесторов для сдачи автомобилей премиум-класса в аренду.
 
-First, run the development server:
+## ✨ Основные функции
+
+- **Информационные блоки:** Подробное описание предложения, гарантий безопасности и окупаемости.
+- **Калькулятор доходности:** Интерактивный калькулятор для оценки потенциального годового дохода от инвестиций.
+- **Форма обратной связи:** Позволяет потенциальным инвесторам оставить заявку.
+- **SEO-оптимизация:** Прописаны мета-теги для лучшей индексации поисковыми системами.
+- **Адаптивный дизайн:** Сайт корректно отображается на различных устройствах благодаря Tailwind CSS.
+
+## 🛠️ Технологии
+
+- [Next.js](https://nextjs.org/) - React-фреймворк для продакшен-приложений.
+- [React](https://reactjs.org/) - Библиотека для создания пользовательских интерфейсов.
+- [TypeScript](https://www.typescriptlang.org/) - Типизированный JavaScript.
+- [Tailwind CSS](https://tailwindcss.com/) - CSS-фреймворк для быстрой стилизации.
+
+## 🚀 Инструкции по запуску
+
+### 1. Установка зависимостей
+
+Для установки всех необходимых пакетов выполните команду в корневой директории проекта:
+
+```bash
+npm install
+```
+
+### 2. Запуск в режиме разработки
+
+Чтобы запустить проект на локальном сервере для разработки, используйте команду:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+После этого откройте [http://localhost:3000](http://localhost:3000) в вашем браузере.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Сборка для продакшена
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Для создания оптимизированной продакшн-сборки проекта выполните:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 4. Запуск продакшн-сервера
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Чтобы запустить сервер с готовой продакшн-сборкой, используйте:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run start
+```
