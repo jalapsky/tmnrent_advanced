@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+  --color-background: #111827;
+  --color-text-primary: #f9fafb;
+}
+
 body {
   @apply bg-background text-text-primary;
 }

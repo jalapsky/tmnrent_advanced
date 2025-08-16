@@ -8,12 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        'container': '1200px',
+      },
       colors: {
-        'background': '#111827', // gray-900
-        'primary': '#DC2626',    // red-600
-        'accent': '#F87171',     // red-400
-        'text-primary': '#F3F4F6',    // gray-100
-        'text-secondary': '#9CA3AF', // gray-400
+        primary: '#1b303a',
+        secondary: '#2c4a5c',
       },
     },
   },
