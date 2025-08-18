@@ -5,7 +5,7 @@ import Calculator from '@/components/Calculator';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import HowItWorks from '@/components/HowItWorks';
-import Fleet from '@/components/Fleet';
+import Pricing from '@/components/Pricing';
 import Testimonials from '@/components/Testimonials';
 import Faq from '@/components/Faq';
 
@@ -15,10 +15,10 @@ export default function Home() {
       <Hero />
       <About />
       <HowItWorks />
-      <Fleet />
       <Guarantees />
       <Testimonials />
       <Calculator />
+      <Pricing />
       <Faq />
       <ContactForm />
       <Footer />

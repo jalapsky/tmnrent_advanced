@@ -3,55 +3,80 @@
 import React, { useState } from 'react';
 
 const Calculator = () => {
-  const [carPrice, setCarPrice] = useState('');
-  const [yearlyIncome, setYearlyIncome] = useState({ min: 0, max: 0 });
+  const [initialInvestment, setInitialInvestment] = useState('10000');
+  const [years, setYears] = useState('5');
+  const [futureValue, setFutureValue] = useState(0);
 
-  const calculateIncome = (e: React.FormEvent) => {
+  const calculateFutureValue = (e: React.FormEvent) => {
     e.preventDefault();
-    const price = parseFloat(carPrice);
-    if (!isNaN(price) && price > 0) {
-      setYearlyIncome({
-        min: price * 0.3,
-        max: price * 0.6,
-      });
+    const principal = parseFloat(initialInvestment);
+    const time = parseInt(years);
+    const rate = 0.15; // 15% annual growth rate
+
+    if (!isNaN(principal) && principal > 0 && !isNaN(time) && time > 0) {
+      const value = principal * Math.pow(1 + rate, time);
+      setFutureValue(value);
     }
   };
 
+  // Calculate initial future value on component mount
+  React.useEffect(() => {
+    const principal = parseFloat(initialInvestment);
+    const time = parseInt(years);
+    if (!isNaN(principal) && !isNaN(time)) {
+       const value = principal * Math.pow(1 + 0.15, time);
+       setFutureValue(value);
+    }
+  }, []);
+
   return (
-    <section className="py-20 sm:py-32 bg-background">
-      <div className="container mx-auto px-4 max-w-3xl">
+    <section className="py-20 sm:py-32">
+      <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white sm:text-5xl">
-            Рассчитайте вашу прибыль
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-text-primary">
+            Смоделируйте ваше будущее
           </h2>
-          <p className="mt-4 text-lg text-text-secondary">
-            Узнайте, сколько может приносить ваш автомобиль. Введите его примерную рыночную стоимость и получите предварительный расчет годового дохода.
+          <p className="mt-6 text-lg text-text-secondary">
+            Наш интерактивный калькулятор поможет вам визуализировать потенциальный рост ваших инвестиций с течением времени.
           </p>
         </div>
-        <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700/50 max-w-xl mx-auto shadow-lg">
-          <form onSubmit={calculateIncome} className="flex flex-col items-center">
-            <input
-              type="number"
-              value={carPrice}
-              onChange={(e) => setCarPrice(e.target.value)}
-              placeholder="Стоимость вашего автомобиля, ₽"
-              className="p-4 border border-gray-600 rounded-lg mb-6 w-full bg-gray-900 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <button type="submit" className="w-full px-8 py-4 rounded-lg text-lg font-bold text-white bg-primary hover:bg-accent transition-all duration-300 transform hover:scale-105">
-              Рассчитать доход
-            </button>
-          </form>
-          {yearlyIncome.max > 0 && (
-            <div className="mt-8 p-6 bg-gradient-to-br from-primary/20 to-background rounded-lg text-center border border-primary/30">
-              <h3 className="text-xl font-bold text-white">Ваш потенциальный доход за год:</h3>
-              <p className="text-4xl font-extrabold text-accent mt-2">
-                {yearlyIncome.min.toLocaleString('ru-RU')} - {yearlyIncome.max.toLocaleString('ru-RU')} ₽
+        <div className="bg-card border border-border rounded-2xl p-8 shadow-2xl shadow-primary/10">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <form onSubmit={calculateFutureValue} className="flex flex-col gap-6">
+              <div>
+                <label htmlFor="investment" className="block text-sm font-medium text-text-secondary mb-2">Первоначальные инвестиции ($)</label>
+                <input
+                  id="investment"
+                  type="number"
+                  value={initialInvestment}
+                  onChange={(e) => setInitialInvestment(e.target.value)}
+                  className="w-full p-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+              <div>
+                <label htmlFor="years" className="block text-sm font-medium text-text-secondary mb-2">Срок инвестирования (лет)</label>
+                <input
+                  id="years"
+                  type="number"
+                  value={years}
+                  onChange={(e) => setYears(e.target.value)}
+                  className="w-full p-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+              <button type="submit" className="w-full py-3 rounded-lg font-semibold text-white bg-primary hover:bg-accent transition-colors duration-300">
+                Рассчитать
+              </button>
+            </form>
+            <div className="text-center">
+              <p className="text-lg text-text-secondary">Потенциальная стоимость через {years} лет:</p>
+              <p className="text-5xl lg:text-6xl font-extrabold text-white my-2">
+                ${futureValue.toLocaleString('en-US', { maximumFractionDigits: 0 })}
               </p>
-              <p className="text-sm text-text-secondary mt-2">
-                *Это предварительный расчет. Точная сумма зависит от модели автомобиля и спроса.
+              <p className="text-sm text-text-secondary">
+                *Расчет основан на среднегодовой доходности 15%. Результаты являются гипотетическими.
               </p>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </section>

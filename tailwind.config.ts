@@ -9,11 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'background': '#111827', // gray-900
-        'primary': '#DC2626',    // red-600
-        'accent': '#F87171',     // red-400
-        'text-primary': '#F3F4F6',    // gray-100
-        'text-secondary': '#9CA3AF', // gray-400
+        'background': '#0D0B12',
+        'primary': '#7F56D9',
+        'accent': '#A78BFA',
+        'card': '#1A1622',
+        'text-primary': '#F9FAFB',
+        'text-secondary': '#A0AEC0',
+        'border': '#2D3748',
       },
     },
   },
