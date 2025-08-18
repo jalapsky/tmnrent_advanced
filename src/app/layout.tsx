@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from 'next/font/google';
+import { Be_Vietnam_Pro } from 'next/font/google';
 import "./globals.css";
 
-const inter = Inter({ subsets: ['latin', 'cyrillic'] });
+const beVietnamPro = Be_Vietnam_Pro({
+  weight: ['400', '600', '700', '800'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: "Инвестируйте в прокат автомобилей с доходностью до 60% годовых",
-  description: "Сдайте свой автомобиль премиум-класса в аренду через нашу компанию и получайте пассивный доход. Гарантии безопасности и окупаемости.",
+  title: "Современная Инвестиционная Платформа",
+  description: "Инструменты и аналитика для принятия верных инвестиционных решений.",
 };
 
 export default function RootLayout({
@@ -16,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={inter.className}>
+      <body className={beVietnamPro.className}>
         {children}
       </body>
     </html>
