@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        'container': '1200px',
+      },
       colors: {
         'background': '#0D0B12',
         'primary': '#7F56D9',

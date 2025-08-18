@@ -9,6 +9,7 @@ import Pricing from '@/components/Pricing';
 import Testimonials from '@/components/Testimonials';
 import Faq from '@/components/Faq';
 
+
 export default function Home() {
   return (
     <main className="bg-background">

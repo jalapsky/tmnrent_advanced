@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-background text-text-secondary;
-  overflow-x: hidden;
-  position: relative;
+@theme {
+  --color-background: #111827;
+  --color-text-primary: #f9fafb;
 }
+
 
 body::before {
   content: '';
@@ -21,3 +21,4 @@ body::before {
   filter: blur(120px);
   transform: translateZ(0);
 }
+
