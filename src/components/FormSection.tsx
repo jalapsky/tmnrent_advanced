@@ -1,15 +1,15 @@
 export default function FormSection() {
     return (
-        <section id="form" className="py-20 px-6 bg-gray-800 text-white text-center">
-            <h2 className="text-3xl font-bold mb-6">Оставьте заявку на сдачу авто</h2>
-            <form className="max-w-md mx-auto flex flex-col gap-4">
-                <input type="text" placeholder="Ваше имя" className="p-4 rounded-lg text-black"/>
-                <input type="tel" placeholder="Телефон" className="p-4 rounded-lg text-black"/>
-                <textarea placeholder="Комментарий" className="p-4 rounded-lg text-black"></textarea>
-                <button type="submit" className="bg-yellow-500 font-bold py-3 rounded-lg hover:bg-yellow-400 transition">
-                    Отправить
-                </button>
-            </form>
+        <section id="form" className="ui-section bg-[var(--color-surface)]">
+            <div className="ui-container max-w-md text-center">
+                <h2 className="h2 mb-6">Оставьте заявку на сдачу авто</h2>
+                <form className="space-y-4">
+                    <input type="text" placeholder="Ваше имя" className="ui-input"/>
+                    <input type="tel" placeholder="Телефон" className="ui-input"/>
+                    <textarea placeholder="Комментарий" className="ui-textarea"></textarea>
+                    <button type="submit" className="ui-btn-primary w-full">Отправить</button>
+                </form>
+            </div>
         </section>
     )
 }

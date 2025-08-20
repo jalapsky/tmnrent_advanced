@@ -1,17 +1,9 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
-      colors: {
-        background: '#111827',
-        textPrimary: '#f9fafb',
-        yellow: {
-          400: '#FCD34D',
-          500: '#FBBF24',
-        },
-      },
       fontFamily: {
         heading: ['Montserrat', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
@@ -34,4 +26,5 @@ const config: Config = {
   },
   plugins: [],
 }
+
 export default config
