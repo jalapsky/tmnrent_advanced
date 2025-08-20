@@ -3,11 +3,16 @@
 import { useState } from 'react';
 
 export default function Calculator() {
-    const [price, setPrice] = useState<number>(0);
+    const [price, setPrice] = useState<string>('');
     const [profit, setProfit] = useState<number>(0);
 
     const calculate = () => {
-        setProfit(price * 0.45);
+        const numericPrice = parseFloat(price);
+        if (!isNaN(numericPrice)) {
+            setProfit(numericPrice * 0.45);
+        } else {
+            setProfit(0);
+        }
     };
 
     return (
@@ -17,7 +22,10 @@ export default function Calculator() {
                 <input
                     type="number"
                     value={price}
-                    onChange={(e) => setPrice(Number(e.target.value))}
+                    onChange={(e) => {
+                        setPrice(e.target.value);
+                        setProfit(0);
+                    }}
                     placeholder="Стоимость вашего авто"
                     className="p-4 rounded-lg border w-64 text-gray-900"
                 />
