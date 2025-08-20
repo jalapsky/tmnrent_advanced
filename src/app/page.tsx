@@ -1,28 +1,30 @@
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Guarantees from '@/components/Guarantees';
 import Calculator from '@/components/Calculator';
-import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
-import HowItWorks from '@/components/HowItWorks';
-import Pricing from '@/components/Pricing';
-import Testimonials from '@/components/Testimonials';
-import Faq from '@/components/Faq';
+import Head from 'next/head'
+import FormSection from "@/components/FormSection";
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import FeaturesSection from "@/components/FeaturesSection";
 
 
 export default function Home() {
-  return (
-    <main className="bg-background">
-      <Hero />
-      <About />
-      <HowItWorks />
-      <Guarantees />
-      <Testimonials />
-      <Calculator />
-      <Pricing />
-      <Faq />
-      <ContactForm />
-      <Footer />
-    </main>
-  );
+    return (
+        <>
+            <Head>
+                <title>Инвестируйте в прокат автомобилей | CarInvest</title>
+                <meta name="description" content="Сдавайте свой автомобиль в аренду премиум-класса с доходностью до 60% годовых. Гарантия безопасности и окупаемости." />
+                <meta name="keywords" content="прокат автомобилей, инвестирование в автомобили, аренда авто, доходность авто" />
+                <meta name="robots" content="index, follow" />
+            </Head>
+
+            <Header />
+            <main className="pt-20">
+                <HeroSection />
+                <FeaturesSection />
+                <Calculator />
+                <FormSection />
+            </main>
+            <Footer />
+        </>
+    )
 }

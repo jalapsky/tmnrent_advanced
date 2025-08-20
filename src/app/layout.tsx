@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro } from 'next/font/google';
+import { Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
 
-const beVietnamPro = Be_Vietnam_Pro({
-  weight: ['400', '600', '700', '800'],
-  subsets: ['latin'],
-  display: 'swap',
-});
+const beVietnamPro = Be_Vietnam_Pro({ subsets: ["latin"], weight: ["400","500","700"] });
 
 export const metadata: Metadata = {
   title: "Современная Инвестиционная Платформа",
@@ -14,15 +10,16 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
-      <body className={beVietnamPro.className}>
-        {children}
+      <html lang="ru" className={`${beVietnamPro.className}`}>
+      <body className="relative bg-background text-text-primary overflow-x-hidden">
+      {/* Premium фон реализован через ::before в global.css */}
+      {children}
       </body>
-    </html>
+      </html>
   );
 }
